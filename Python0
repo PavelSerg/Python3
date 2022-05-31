@@ -1,0 +1,100 @@
+# Найти НОК двух чисел.
+
+
+def calculate_lcm(a, b):
+    
+    if a > b:
+        greater = a
+    else:
+        greater = b 
+    while(True):
+        if((greater % a == 0) and(greater % b == 0)):
+            lcm = greater
+            break
+        greater += 1
+    return lcm 
+       
+num1 = int(input("Введите первое число:"))
+num2 = int(input("Введите второе число:"))
+
+print("The L.C.M. of", num1, "and", num2, "is", calculate_lcm(num1, num2))
+
+
+# Вычислить число Пи c заданной точностью d.
+
+
+k = 1
+s = 0
+for i in range ( 1000000 ):
+    if i % 2 == 0 :
+        s += 4 / k
+    else :
+        s -= 4 / k
+        k += 2 
+print(s)        
+        
+d =  int(input("Введите число для заданной точности числа Пи:\n"))
+print(f'число Пи с заданной точностью {d} равно {round(i, d)}') 
+      
+
+
+# Составить список простых множителей натурального числа N.
+
+
+num = int(input("Введите число: "))
+i = 2 # первое простое число
+lst = []
+old = num
+while i <= num:
+    if num % i == 0:
+        lst.append(i)
+        num //= i
+        i = 2
+    else:
+        i += 1
+print(f"Простые множители числа {old} приведены в списке: {lst}")
+
+
+# Дана последовательность чисел. Получить список неповторяющихся элементов исходной последовательности.
+
+
+lst = list(map(int, input("Введите числа через пробел:\n").split()))
+print(f"Исходный список: {lst}")
+new_lst = []
+[new_lst.append(i) for i in lst if i not in new_lst]
+print(f"Список из неповторяющихся элементов: {new_lst}")
+
+
+#  Дан текстовый файл, содержащий целые числа. Удалить из него все четные числа.
+
+with open("task_1.txt", "w") as Fill_file:
+    while 1 is 1:
+        try:
+            length = int(input("Укажите кол-во цифр в файле: "))
+            break
+        except (ValueError, TypeError):
+            print("Введите число!")
+ 
+    for i in range(length):
+        Fill_file.write(str(i))
+        Fill_file.write(str("\n"))
+ 
+ 
+with open("task_1.txt") as file:
+    arr = []
+    line = file.readline()
+    for line in file:
+        if int(line) % 2 != 0:
+            arr.append(int(line))
+ 
+print(arr)
+ 
+with open("task_1.txt", "w") as Change_file:
+    length = len(arr)
+    for i in range(length):
+        Change_file.write(str(arr[i]))
+        Change_file.write(str("\n"))
+        
+        
+        
+        
